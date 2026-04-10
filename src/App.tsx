@@ -6,6 +6,7 @@
 import { motion, useScroll, useSpring, AnimatePresence } from "motion/react";
 import { Menu, ChevronDown } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
+import { supabase } from "./lib/supabase";
 
 // ─── Shared Types ────────────────────────────────────────────────────────────
 type Chapter = "problem" | "solutions" | "catch" | "whatnow";
@@ -85,7 +86,7 @@ const Hero = ({ onBegin }: { onBegin: () => void }) => (
         initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}
         className="inline-block font-sans font-bold text-xs tracking-[0.3em] uppercase text-primary mb-8 bg-primary-fixed/30 px-4 py-1.5 rounded-full"
       >
-        Investigative Special Report
+        {/* Investigative Special Report */}
       </motion.span>
       <motion.h1
         initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1, ease: "easeOut" }}
@@ -298,7 +299,7 @@ const ProductCard = ({ label, name, desc, img, alt, offset }: { label: string; n
   </div>
 );
 
-const ChapterSolutions = () => (
+const ChapterSolutions = ({ onNavigateCatch }: { onNavigateCatch?: () => void }) => (
   <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
     {/* Hero */}
     <header className="px-6 md:px-12 mb-40 max-w-7xl mx-auto pt-32">
@@ -309,7 +310,7 @@ const ChapterSolutions = () => (
             The Blue <span className="text-primary italic">Regeneration.</span>
           </h1>
           <p className="text-2xl text-on-surface-variant leading-relaxed max-w-2xl font-serif">
-            Restoring the equilibrium requires more than restraint; it demands a radical reimagining of how we nurture the ocean's bounty. From resilient local species to high-integrity processing.
+            With the growing global population, aquaculture is expected to meet the increasing demand for cheaper animal protein. To boost fish production, fish farmers have shifted from traditional culture methods to highly intensified aquaculture systems to ensure higher productivity and consistent supply…
           </p>
         </div>
         <div className="col-span-12 lg:col-span-4 hidden lg:block">
@@ -325,7 +326,7 @@ const ChapterSolutions = () => (
     <section className="mb-40 px-6 md:px-12">
       <div className="max-w-7xl mx-auto mb-16">
         <h2 className="font-sans font-bold text-4xl mb-4">Pioneering Species</h2>
-        <p className="text-lg text-on-surface-variant font-serif">Selecting species that thrive in harmony with the local ecosystem, reducing the pressure on wild stocks.</p>
+        <p className="text-lg text-on-surface-variant font-serif">Species that thrive in harmony with the local ecosystem are carefully selected, reducing pressure on wild stocks.</p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-[1920px] mx-auto">
         <SpeciesCard name="Milkfish" desc="The backbone of regional aquaculture, known for its incredible hardiness and low trophic footprint."
@@ -334,7 +335,8 @@ const ChapterSolutions = () => (
         <SpeciesCard name="Tilapia" desc="Efficient protein converters that adapt seamlessly to diverse environmental conditions."
           img="https://lh3.googleusercontent.com/aida-public/AB6AXuBcCCkMPhr9dH7-fD9EPedHNEmxDr4_ZzvuFdKMps3KYbwUO956z3eXL3BQ_Kg-H3qREgE2wu3by1zJbhXHJa_mQlVAEeJAPBvRIixEsQLz6t4kA6Q5oY0BmEJcvmrMgUGbw_VA4JCgSzSFT2MDw_pRGFB58L75tmA1y7YTl4uh58FQOvhGo4I8gaJmPoDjLb2ZbpF8JlbPLULY1SgkkUHvl7qH9Klxqe1ya8dwwjJmVPVBdmHE_L0lTWa3QR19yuFdaCxpzcbWEwg"
           alt="Tilapia in aquaculture" />
-        <SpeciesCard name="Shrimp" desc="Cultivated in mangrove-friendly enclosures to preserve vital coastal nursery habitats."
+        <SpeciesCard name="Shrimp" desc="Farmed in controlled aquatic environments such as ponds, or tanks to produce a sustainable source of seafood.
+"
           img="https://lh3.googleusercontent.com/aida-public/AB6AXuBF5XuAQOQQxHgwb6uVfg5skr2FCE-SfmO1i4dk4lQ8KwYfecWKanwBOCRNkdg2HvY3Qzf7r7_HklOGTceeWN57nW8FA9VQLT-S3T2kHXXElI7V06ZUhhZ8CTW4Qi1BqJZYgFjoPyRoy1txX5pYdvMFwkGyjOS0D43I7dlJ-yH29K0aUa0lC1jPBDxH9rndxpGOMA7U6ISaNXMXsK3-9F1gvt4YKFyPy1eu5e4VCOh3aIObwSKXKnO1U-ZFP5bjY3Ub-5r6RrPnXM4"
           alt="Shrimp in aquaculture" />
         <SpeciesCard name="Crab" desc="Mud crab fattening programs provide high-value income for small-scale coastal guardians."
@@ -347,22 +349,24 @@ const ChapterSolutions = () => (
     <section className="mb-40 py-32 bg-surface-container-low">
       <div className="max-w-5xl mx-auto px-6 md:px-12">
         <div className="text-center mb-24">
-          <span className="font-sans font-bold text-sm tracking-widest uppercase text-primary mb-4 block">The Value Stream</span>
-          <h2 className="font-sans font-black text-5xl mb-6">From Ocean to Table</h2>
-          <p className="text-lg text-on-surface-variant font-serif">A non-linear commitment to quality ensures that every harvest retains its integrity, minimizing waste and maximizing nutritional value.</p>
+          <span className="font-sans font-bold text-sm tracking-widest uppercase text-primary mb-4 block">Aquaculture</span>
+          <h2 className="font-sans font-black text-5xl mb-6">However, the intensification of culture systems has implications on the environment.</h2>
+          {/* <p className="text-lg text-on-surface-variant font-serif">However, the intensification of culture systems has implications on the environment.</p> */}
         </div>
-        <div className="relative">
-          <div className="absolute left-1/2 top-0 bottom-0 w-px bg-outline-variant/30 hidden md:block transform -translate-x-1/2" />
-          <ProcessStep icon="⚙️" title="Processing" desc="Humane harvesting and immediate cold-chain entry to lock in peak freshness and texture." />
-          <ProcessStep icon="❄️" title="Preservation" desc="Utilizing blast freezing and artisanal salt-curing techniques to extend shelf life naturally." right />
-          <ProcessStep icon="✅" title="Quality Control" desc="Rigorous molecular testing for purity and sustainability compliance at every batch level." />
-          <ProcessStep icon="📦" title="Packaging" desc="Compostable, seaweed-based materials that ensure the product's end-of-life returns to the earth." right />
+        {/* Processing steps (hidden) */}
+        <div className="flex justify-center">
+          <button
+            onClick={() => onNavigateCatch && onNavigateCatch()}
+            className="mt-8 inline-flex items-center px-6 py-3 bg-primary text-on-primary text-white font-sans font-bold rounded-full hover:scale-105 active:scale-95 transition-transform"
+          >
+            Explore the Catch →
+          </button>
         </div>
       </div>
     </section>
 
     {/* Products */}
-    <section className="px-6 md:px-12 max-w-7xl mx-auto mb-40">
+    {/* <section className="px-6 md:px-12 max-w-7xl mx-auto mb-40">
       <div className="flex flex-col md:flex-row justify-between items-end mb-16">
         <div className="max-w-2xl">
           <h2 className="font-sans font-black text-5xl mb-6">Culinary Manifestos</h2>
@@ -380,7 +384,7 @@ const ChapterSolutions = () => (
           img="https://lh3.googleusercontent.com/aida-public/AB6AXuAM8xcOouSSIn26UoQnVV73jfdyJP7PjtIcLLf_Oz1Iv5e6CbgorEqvtyHR8UG0j-8TbLF2xGTauxUixve4y0ycDJ7-0ArC-WOjSQqpDiw5eOGZnQww9PG5GQ87jiu37dlRXFhpTuTr-eDaOD2-hed5hxNinvEJCcJ2mNGdoGFLTx9YetTedejuxMBu8PZXhjWk9PZbr70-ND2pG8M0vMzEDpxumIgB2Afahhusy5UkVDAeMD1RvKNLDujw2H9262RKgd10d-qRxVg"
           alt="Tahong chips" offset="md:translate-y-24" />
       </div>
-    </section>
+    </section> */}
 
   </motion.div>
 );
@@ -426,7 +430,7 @@ const ChapterCatch = () => (
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-end">
           <div className="md:col-span-7">
             <p className="text-2xl md:text-3xl font-serif leading-relaxed text-on-surface-variant italic">
-              Every technological marvel at sea carries a shadow. While we celebrate the harvest, the invisible ledger of ecological debt continues to grow.
+              Every technological advancement at sea has a cost; while we celebrate increased harvest, the environmental impact continues to rise.
             </p>
           </div>
         </div>
@@ -482,9 +486,9 @@ const ChapterCatch = () => (
       <p className="font-serif text-xl text-on-surface-variant leading-relaxed mb-12">
         The balance isn't a static point; it's a constant negotiation. We trade mangrove carbon sinks for protein calories, and antibiotic efficacy for market stability. The question isn't whether we should farm the seas, but how much we are willing to let them die in the process.
       </p>
-      <button className="bg-on-surface text-background font-sans font-bold px-10 py-4 rounded-full text-sm uppercase tracking-[0.2em] hover:scale-105 active:scale-95 transition-transform">
+      {/* <button className="bg-on-surface text-background font-sans font-bold px-10 py-4 rounded-full text-sm uppercase tracking-[0.2em] hover:scale-105 active:scale-95 transition-transform">
         Explore the Global Ledger
-      </button>
+      </button> */}
     </section>
 
     {/* 3-up Image Grid */}
@@ -510,108 +514,215 @@ const ChapterCatch = () => (
 );
 
 // ─── Chapter 4: What Now? ─────────────────────────────────────────────────────
-const AgencyCard = ({ icon, name, fullName, desc, linkText, color }: { icon: string; name: string; fullName: string; desc: string; linkText: string; color: string }) => (
+const AgencyCard = ({ icon, name, fullName, desc, color }: { icon: string; name: string; fullName: string; desc: string;  color: string }) => (
   <div className="bg-surface-container-lowest p-10 rounded-xl flex flex-col h-full">
     <div className={`w-16 h-16 flex items-center justify-center rounded-full mb-8 text-2xl ${color}`}>{icon}</div>
     <h3 className="font-sans font-bold text-xl mb-4">{name}</h3>
     <p className={`font-sans text-sm font-bold uppercase mb-6 ${color.includes("primary") ? "text-primary" : color.includes("tertiary") ? "text-tertiary" : "text-secondary"}`}>{fullName}</p>
     <p className="text-on-surface-variant mb-8 flex-grow font-serif">{desc}</p>
     <a href="#" className={`font-sans font-bold inline-flex items-center hover:translate-x-2 transition-transform ${color.includes("primary") ? "text-primary" : color.includes("tertiary") ? "text-tertiary" : "text-secondary"}`}>
-      {linkText} →
     </a>
   </div>
 );
 
-const ChapterWhatNow = () => (
-  <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
-    {/* Hero */}
-    <section className="px-6 md:px-12 mb-40 max-w-6xl mx-auto pt-32">
-      <div className="relative py-12">
-        <span className="font-sans font-bold text-sm tracking-[0.3em] uppercase text-primary mb-6 block">Chapter IV: The Future Outlook</span>
-        <h1 className="font-sans font-black text-6xl md:text-8xl leading-[0.9] text-on-surface mb-12 max-w-4xl">What Now?</h1>
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
-          <div className="md:col-span-7">
-            <p className="text-2xl md:text-3xl font-serif italic leading-relaxed text-on-surface-variant">
-              "Fish processing technology aims to feed the growing population by maximizing yields and extending shelf life, while ensuring the least environmental impact possible."
-            </p>
-          </div>
-          <div className="md:col-span-5 flex flex-col justify-end">
-            <div className="p-8 bg-surface-container-low rounded-xl">
-              <p className="font-sans font-bold text-sm text-secondary uppercase tracking-widest mb-4">Reflection Prompt</p>
-              <h2 className="font-sans font-bold text-2xl mb-6">What do you think should be done?</h2>
-              <button className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-primary to-primary-container text-on-primary rounded-full font-sans font-bold hover:scale-105 active:scale-95 transition-transform">
-                Share Your Perspective →
-              </button>
+// ─── Chapter 4: What Now? ─────────────────────────────────────────────────────
+
+interface Reflection {
+  id: string;
+  name: string;
+  message: string;
+  created_at: string;
+}
+
+const ChapterWhatNow = () => {
+  const [name, setName] = useState("");
+  const [message, setMessage] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [reflections, setReflections] = useState<Reflection[]>([]);
+  const [loadingReflections, setLoadingReflections] = useState(true);
+
+  // Fetch reflections on mount
+  useEffect(() => {
+    const fetchReflections = async () => {
+      const { data, error } = await supabase
+        .from("reflections")
+        .select("*")
+        .order("created_at", { ascending: false });
+      if (!error && data) setReflections(data);
+      setLoadingReflections(false);
+    };
+    fetchReflections();
+
+    // Real-time subscription so new submissions appear live
+    const channel = supabase
+      .channel("reflections-channel")
+      .on("postgres_changes", { event: "INSERT", schema: "public", table: "reflections" }, (payload) => {
+        setReflections((prev) => [payload.new as Reflection, ...prev]);
+      })
+      .subscribe();
+
+    return () => { supabase.removeChannel(channel); };
+  }, []);
+
+  const handleSubmit = async () => {
+    if (!name.trim() || !message.trim()) return;
+    setSubmitting(true);
+    const { error } = await supabase
+      .from("reflections")
+      .insert([{ name: name.trim(), message: message.trim() }]);
+    if (!error) {
+      setSubmitted(true);
+      setName("");
+      setMessage("");
+    }
+    setSubmitting(false);
+  };
+
+  return (
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
+      {/* Hero */}
+      <section className="px-6 md:px-12 mb-40 max-w-6xl mx-auto pt-32">
+        <div className="relative py-12">
+          <span className="font-sans font-bold text-sm tracking-[0.3em] uppercase text-primary mb-6 block">Chapter IV: The Future Outlook</span>
+          <h1 className="font-sans font-black text-6xl md:text-8xl leading-[0.9] text-on-surface mb-12 max-w-4xl">What Now?</h1>
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
+            <div className="md:col-span-7">
+              <p className="text-2xl md:text-3xl font-serif italic leading-relaxed text-on-surface-variant">
+                "Fish processing technology aims to feed the growing population by maximizing yields and extending shelf life, while ensuring the least environmental impact possible."
+              </p>
+            </div>
+
+            {/* ── Reflection Form ── */}
+            <div className="md:col-span-5 flex flex-col justify-end">
+              <div className="p-8 bg-surface-container-low rounded-xl">
+                <p className="font-sans font-bold text-sm text-secondary uppercase tracking-widest mb-4">Reflection Prompt</p>
+                <h2 className="font-sans font-bold text-2xl mb-6">What do you think should be done?</h2>
+
+                {submitted ? (
+                  <div className="text-center py-6">
+                    <span className="text-4xl mb-4 block">🌊</span>
+                    <p className="font-sans font-bold text-primary text-lg">Your voice has been heard.</p>
+                    <p className="font-serif text-on-surface-variant mt-2 text-sm">Scroll down to see all reflections.</p>
+                    <button
+                      onClick={() => setSubmitted(false)}
+                      className="mt-4 text-xs font-sans font-bold uppercase tracking-widest text-outline underline underline-offset-4"
+                    >
+                      Add another
+                    </button>
+                  </div>
+                ) : (
+                  <div className="space-y-4">
+                    <input
+                      type="text"
+                      placeholder="Your name"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      maxLength={60}
+                      className="w-full bg-background border border-outline-variant rounded-lg px-4 py-3 font-sans text-sm text-on-surface placeholder:text-on-surface/40 focus:outline-none focus:border-primary transition-colors"
+                    />
+                    <textarea
+                      placeholder="Share your reflection…"
+                      value={message}
+                      onChange={(e) => setMessage(e.target.value)}
+                      maxLength={400}
+                      rows={4}
+                      className="w-full bg-background border border-outline-variant rounded-lg px-4 py-3 font-sans text-sm text-on-surface placeholder:text-on-surface/40 focus:outline-none focus:border-primary transition-colors resize-none"
+                    />
+                    <button
+                      onClick={handleSubmit}
+                      disabled={submitting || !name.trim() || !message.trim()}
+                      className="w-full inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-primary to-primary-container text-on-primary rounded-full font-sans font-bold hover:scale-105 active:scale-95 transition-transform disabled:opacity-50 disabled:pointer-events-none"
+                    >
+                      {submitting ? "Submitting…" : "Share Your Perspective →"}
+                    </button>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    {/* Safety Framework */}
-    <section className="bg-surface-container-low py-40">
-      <div className="px-6 md:px-12 max-w-7xl mx-auto">
-        <div className="mb-24 max-w-3xl">
-          <h2 className="font-sans font-black text-5xl mb-8">The Safety Framework</h2>
-          <p className="text-xl leading-relaxed text-on-surface-variant font-serif">In the Philippines, ensuring the integrity of the blue economy falls under a multi-agency shield. This legislative infrastructure is designed to bridge the gap between industrial efficiency and public health.</p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-          <AgencyCard icon="🌊" name="BFAR" fullName="Bureau of Fisheries & Aquatic Resources" desc="Regulating post-harvest practices and ensuring that aquatic resources are processed under sustainable and sanitary conditions." linkText="View Guidelines" color="bg-primary-fixed" />
-          <AgencyCard icon="🌾" name="DA" fullName="Department of Agriculture" desc="Overseeing the broader food security chain, integrating fisheries into the national agricultural safety standards." linkText="Agency Protocol" color="bg-tertiary-fixed" />
-          <AgencyCard icon="🛡️" name="DOH" fullName="Department of Health" desc="The final arbiter of safety, managing the Food and Drug Administration (FDA) to certify processed fish for consumption." linkText="Safety Reports" color="bg-secondary-fixed" />
-        </div>
-      </div>
-    </section>
+      {/* ── Reflections Wall ── */}
+      <section className="px-6 md:px-12 mb-40 max-w-6xl mx-auto">
+        <h2 className="font-sans font-black text-4xl mb-4 tracking-tight">Community Reflections</h2>
+        <p className="font-serif text-on-surface-variant mb-12">Voices from those who care about the ocean's future.</p>
 
-    {/* Join the Narrative */}
-    <section className="py-40 px-6 md:px-12">
-      <div className="max-w-4xl mx-auto text-center">
-        <h3 className="font-sans font-black text-4xl mb-12">Join the Narrative</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="p-12 bg-white rounded-2xl flex flex-col items-center group">
-            <span className="text-5xl text-outline-variant group-hover:text-primary transition-colors mb-6">📚</span>
-            <h4 className="font-sans font-bold text-xl mb-4">wala ko balo iadd</h4>
-            <p className="text-on-surface-variant mb-8 font-serif">ambot ano iadd</p>
-            <a href="#" className="underline underline-offset-4 font-sans font-bold text-primary">ano iadd tman</a>
+        {loadingReflections ? (
+          <div className="text-center py-16 text-on-surface-variant font-serif italic">Loading reflections…</div>
+        ) : reflections.length === 0 ? (
+          <div className="text-center py-16 text-on-surface-variant font-serif italic">Be the first to share your reflection.</div>
+        ) : (
+          <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
+            {reflections.map((r) => (
+              <div
+                key={r.id}
+                className="break-inside-avoid bg-surface-container-lowest rounded-xl p-8 border border-outline-variant/10"
+                style={{ boxShadow: "0 4px 24px -8px rgba(0,105,76,0.06)" }}
+              >
+                <p className="font-serif italic text-on-surface-variant leading-relaxed mb-6">"{r.message}"</p>
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center text-primary font-sans font-black text-sm">
+                    {r.name.charAt(0).toUpperCase()}
+                  </div>
+                  <div>
+                    <p className="font-sans font-bold text-sm text-on-surface">{r.name}</p>
+                    <p className="font-sans text-[10px] uppercase tracking-widest text-on-surface/40">
+                      {new Date(r.created_at).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
-          <div className="p-12 bg-white rounded-2xl flex flex-col items-center group">
-            <span className="text-5xl text-outline-variant group-hover:text-secondary transition-colors mb-6">🗳️</span>
-            <h4 className="font-sans font-bold text-xl mb-4">Citizen Input</h4>
-            <p className="text-on-surface-variant mb-8 font-serif">Participate in our national survey regarding food security and environmental safety.</p>
-            <a href="#" className="underline underline-offset-4 font-sans font-bold text-secondary">Open Google Form wala pani nalink sa google form, idk kng want nyo ni dayonon</a>
+        )}
+      </section>
+
+      {/* Safety Framework — unchanged below */}
+      <section className="bg-surface-container-low py-40">
+        <div className="px-6 md:px-12 max-w-7xl mx-auto">
+          <div className="mb-24 max-w-3xl">
+            <h2 className="font-sans font-black text-5xl mb-8">The Safety Framework</h2>
+            <p className="text-xl leading-relaxed text-on-surface-variant font-serif">In the Philippines, ensuring the integrity of the blue economy falls under a multi-agency shield. This legislative infrastructure is designed to bridge the gap between industrial efficiency and public health.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <AgencyCard icon="🌊" name="DA-BFAR" fullName="Bureau of Fisheries & Aquatic Resources" desc="Regulating and developing the country's fisheries and aquatic resources to ensure sustainable production, food safety, and livelihood support for coastal communities." color="bg-primary-fixed" />
+            <AgencyCard icon="🌾" name="DENR" fullName="Department of Environment and Natural Resources" desc="Overseeing the protection, conservation, and sustainable management of the country's natural resources, including ecosystems that support food production." color="bg-tertiary-fixed" />
+            <AgencyCard icon="🛡️" name="DOH" fullName="Department of Health" desc="The final arbiter of safety, managing the Food and Drug Administration (FDA) to certify processed fish for consumption." color="bg-secondary-fixed" />
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    {/* Visual Anchor */}
-    <section className="w-full h-[500px] relative overflow-hidden">
-      <img
-        alt="Fisherman at sea"
-        className="w-full h-full object-cover"
-        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhSbDeO11qxEarrZYIUPAUXGsdy49Am6RhZ4EN4Ox9Izm-BLWiUIvReIglYvMLOJdcK_cNnbqjYLeD0vu4ZqvfRKaD481Q2mEJsTWwaw6g0VCMSCppo9JhTkZlWawBR7lJJjoALCa9xN2LtW7u2a5vrjtHVw_i59WHEHMMmd4gOv_1br9hYQ7iisdDz7dOfRz6Hkr78O14H0qR-q-46jprpX4czDPuNmj7XLH3WgNIDQwtJQp3_JFMeKJ0d7ju_3Hp-2XtTxJljQE"
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
-    </section>
-  </motion.div>
-);
+      {/* Visual Anchor — unchanged */}
+      <section className="w-full h-[500px] relative overflow-hidden">
+        <img
+          alt="Fisherman at sea"
+          className="w-full h-full object-cover"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhSbDeO11qxEarrZYIUPAUXGsdy49Am6RhZ4EN4Ox9Izm-BLWiUIvReIglYvMLOJdcK_cNnbqjYLeD0vu4ZqvfRKaD481Q2mEJsTWwaw6g0VCMSCppo9JhTkZlWawBR7lJJjoALCa9xN2LtW7u2a5vrjtHVw_i59WHEHMMmd4gOv_1br9hYQ7iisdDz7dOfRz6Hkr78O14H0qR-q-46jprpX4czDPuNmj7XLH3WgNIDQwtJQp3_JFMeKJ0d7ju_3Hp-2XtTxJljQE"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
+      </section>
+    </motion.div>
+  );
+};
 
 // ─── Footer ───────────────────────────────────────────────────────────────────
 const Footer = () => (
   <footer className="bg-surface-container w-full py-24 px-12">
     <div className="flex flex-col items-center text-center space-y-12 max-w-4xl mx-auto">
-      <div className="text-xl font-bold font-sans text-primary uppercase tracking-[0.4em]">The Narrative Current</div>
+      <div className="text-xl font-bold font-sans text-primary uppercase tracking-[0.4em]">THE AQUA SCI PROJECT</div>
       <p className="font-serif italic text-lg text-on-surface max-w-2xl">
-        We believe that complex problems deserve deep exploration. Our journalism is funded by readers who value the nuance of the blue economy.
+        A project for Aqua Sci 1 - People and the Aquatic World. Dedicated to explore the intricate balance between aquaculture and environmental sustainability through data-driven storytelling.
       </p>
-      <nav className="flex flex-wrap justify-center gap-x-8 gap-y-4">
+      {/* <nav className="flex flex-wrap justify-center gap-x-8 gap-y-4">
         <a className="font-sans text-sm uppercase tracking-widest opacity-70 hover:opacity-100 transition-opacity underline decoration-primary underline-offset-4" href="#">Privacy Policy</a>
         <a className="font-sans text-sm uppercase tracking-widest opacity-70 hover:opacity-100 transition-opacity" href="#">Data Sources</a>
         <a className="font-sans text-sm uppercase tracking-widest opacity-70 hover:opacity-100 transition-opacity" href="#">Contact Editor</a>
-      </nav>
+      </nav> */}
       <div className="pt-8 border-t border-outline-variant/20 w-full">
         <p className="font-sans text-[10px] tracking-[0.2em] uppercase text-on-surface/40">
-          © 2024 The Narrative Current. Investigative Journalism for the Blue Economy.
+          Jessa Mae Diel | Ma. Ninna Flores | Dean Lenard Jumilla | Darah Via Moscoso
         </p>
       </div>
     </div>
@@ -659,7 +770,7 @@ export default function App() {
             </motion.div>
           )}
           {view === "problem" && <motion.div key="problem"><ChapterProblem /></motion.div>}
-          {view === "solutions" && <motion.div key="solutions"><ChapterSolutions /></motion.div>}
+          {view === "solutions" && <motion.div key="solutions"><ChapterSolutions onNavigateCatch={() => handleNav("catch")} /></motion.div>}
           {view === "catch" && <motion.div key="catch"><ChapterCatch /></motion.div>}
           {view === "whatnow" && <motion.div key="whatnow"><ChapterWhatNow /></motion.div>}
         </AnimatePresence>
