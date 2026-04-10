@@ -39,11 +39,10 @@ const Navbar = ({ activeChapter, onNav }: { activeChapter: Chapter; onNav: (c: C
             <button
               key={item.id}
               onClick={() => onNav(item.id)}
-              className={`font-sans font-bold text-xs tracking-widest uppercase transition-colors duration-300 ${
-                activeChapter === item.id
-                  ? "text-primary after:content-['•'] after:ml-1"
-                  : "text-on-surface/60 hover:text-primary"
-              }`}
+              className={`font-sans font-bold text-xs tracking-widest uppercase transition-colors duration-300 ${activeChapter === item.id
+                ? "text-primary after:content-['•'] after:ml-1"
+                : "text-on-surface/60 hover:text-primary"
+                }`}
             >
               {item.label}
             </button>
@@ -102,7 +101,7 @@ const Hero = ({ onBegin }: { onBegin: () => void }) => (
       </motion.div>
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1, duration: 0.8 }} className="mt-8 flex flex-col items-center">
         <button onClick={onBegin} className="group flex flex-col items-center space-y-4 cursor-pointer">
-          <span className="font-sans font-bold text-[10px] tracking-widest uppercase text-outline opacity-60 group-hover:opacity-100 transition-opacity">Begin the journey</span>
+          <span className="font-sans font-bold text-[45px] tracking-widest uppercase text-outline opacity-60 group-hover:opacity-100 transition-opacity">Begin the journey</span>
           <div className="w-12 h-12 rounded-full border border-outline-variant flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-all duration-500">
             <motion.div animate={{ y: [0, 5, 0] }} transition={{ repeat: Infinity, duration: 2 }}>
               <ChevronDown size={24} />
@@ -111,17 +110,43 @@ const Hero = ({ onBegin }: { onBegin: () => void }) => (
         </button>
       </motion.div>
     </div>
-    <div className="absolute bottom-12 right-12 hidden xl:block w-72">
-      <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.8, duration: 1 }}
-        className="relative rounded-lg overflow-hidden border border-outline-variant/10"
-        style={{ boxShadow: "0 20px 40px -15px rgba(0,105,76,0.04)" }}>
-        <img
-          alt="Deep water aquaculture site"
-          className="w-full aspect-[4/5] object-cover"
-          src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHib6oc8a3UT6JPPHRa6kbgViJjObyTGaRwwuteiDEdSJU5yTA07vxm_ue6wdg_a_XN7aWwz9SFmSU6Vlia5XDXCW68UdFwZ0W8-c4LRCUSADL8knI-UMG0PIsh1H1LhoRf-XT4TOn4gSCqAFJgu-Wnejcpfh_8Iyuu25UDAWDpdyfu-Ue3VC5yAXRsJmbr0g6lyPwLF_Z9qac_qmx2tkF1vOLpyHXa7BEAZ0ww6vAe0McnKCRkExgDvyr3308CaYoz47CUTt0Uiw"
-        />
-        <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-on-surface/80 to-transparent">
-          <p className="font-sans text-[10px] uppercase tracking-widest text-on-primary font-bold">Plateau Nord, Arctic Circle</p>
+    {/* Left Photo Grid */}
+    <div className="absolute bottom-12 left-12 hidden xl:block">
+      <motion.div initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.8, duration: 1 }} className="grid grid-cols-1 gap-4 w-80">
+        <div className="relative rounded-lg overflow-hidden border border-outline-variant/10" style={{ boxShadow: "0 20px 40px -15px rgba(0,105,76,0.04)" }}>
+          <img alt="feature-photo-1" className="w-full aspect-square object-cover" src="/feature-photo-1.jpg" />
+          <div className="absolute bottom-0 left-0 right-0 p-2 bg-gradient-to-t from-on-surface/80 to-transparent">
+          </div>
+        </div>
+        <div className="relative rounded-lg overflow-hidden border border-outline-variant/10" style={{ boxShadow: "0 20px 40px -15px rgba(0,105,76,0.04)" }}>
+          <img alt="feature-photo-2" className="w-full aspect-square object-cover" src="/feature-photo-2.jpg" />
+          <div className="absolute bottom-0 left-0 right-0 p-2 bg-gradient-to-t from-on-surface/80 to-transparent">
+          </div>
+        </div>
+        <div className="relative rounded-lg overflow-hidden border border-outline-variant/10" style={{ boxShadow: "0 20px 40px -15px rgba(0,105,76,0.04)" }}>
+          <img alt="feature-photo-3" className="w-full aspect-square object-cover" src="/feature-photo-3.jpg" />
+          <div className="absolute bottom-0 left-0 right-0 p-2 bg-gradient-to-t from-on-surface/80 to-transparent">
+          </div>
+        </div>
+      </motion.div>
+    </div>
+    {/* Right Photo Grid */}
+    <div className="absolute bottom-12 right-12 hidden xl:block">
+      <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.8, duration: 1 }} className="grid grid-cols-1 gap-4 w-80">
+        <div className="relative rounded-lg overflow-hidden border border-outline-variant/10" style={{ boxShadow: "0 20px 40px -15px rgba(0,105,76,0.04)" }}>
+          <img alt="feature-photo-4" className="w-full aspect-square object-cover" src="/feature-photo-4.jpg" />
+          <div className="absolute bottom-0 left-0 right-0 p-2 bg-gradient-to-t from-on-surface/80 to-transparent">
+          </div>
+        </div>
+        <div className="relative rounded-lg overflow-hidden border border-outline-variant/10" style={{ boxShadow: "0 20px 40px -15px rgba(0,105,76,0.04)" }}>
+          <img alt="feature-photo-5" className="w-full aspect-square object-cover" src="/feature-photo-5.jpg" />
+          <div className="absolute bottom-0 left-0 right-0 p-2 bg-gradient-to-t from-on-surface/80 to-transparent">
+          </div>
+        </div>
+        <div className="relative rounded-lg overflow-hidden border border-outline-variant/10" style={{ boxShadow: "0 20px 40px -15px rgba(0,105,76,0.04)" }}>
+          <img alt="feature-photo-6" className="w-full aspect-square object-cover" src="/feature-photo-6.jpg" />
+          <div className="absolute bottom-0 left-0 right-0 p-2 bg-gradient-to-t from-on-surface/80 to-transparent">
+          </div>
         </div>
       </motion.div>
     </div>
@@ -230,7 +255,7 @@ const ChapterProblem = () => (
             <img
               alt="Aerial view of fish farming cages in Philippine waters"
               className="absolute inset-0 w-full h-full object-cover"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSErslgGsu06CXxhk6LuhdMJukVjo1JFL3AJqSZPHt0oKwFCeCNXXHmfWFdSzo67rar98cFQWjbkjecPIiN0UyxS3lhF3VkOCbMt-tdaVC3SrYYUO-FUzUXbRpCzfC3ZGCaHWDW27YqKtfKnON5zENDKc26kLDr3qQ0gMW2JGUMTD0zFc1JXhNt6f3kGFeeCXlrn1r3iSK3MA5YDnp_MY1MT8y4WNlpGRn2CunMAWMumTeH-9jVC3Fs4qP_wyJkywRa2ylFV5b-kQ"
+              src="52.jpg"
             />
             <div className="absolute inset-0 bg-primary/20 mix-blend-multiply" />
           </div>
@@ -330,17 +355,17 @@ const ChapterSolutions = ({ onNavigateCatch }: { onNavigateCatch?: () => void })
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-[1920px] mx-auto">
         <SpeciesCard name="Milkfish" desc="The backbone of regional aquaculture, known for its incredible hardiness and low trophic footprint."
-          img="https://lh3.googleusercontent.com/aida-public/AB6AXuBWuwVoacxIR-hOH4exH_YxkrUvPy4POFa0XoOZKyZIap0DQp1McnHH1qnoZB1xe_mzKn_cuv8II8gCzXIZij4N2U9Zh7hRyMzpgVQNTCefTJueUOrYdP4zanKT0_2pIFc4-6exKFC7JAxxeAYKzQwP5qITiHTXNoydsqMLkt47cFld8UWc8CcRqNU7PBOV4J_qx7u3oEuIR_b0_5YNRJjYu2LkDhM-3ql2VCJnQJHvW8b8uGbroYYAedDsupS8q4HlkaHmZSfTkuI"
+          img="/milkfish.jpg"
           alt="Milkfish in coastal water" />
         <SpeciesCard name="Tilapia" desc="Efficient protein converters that adapt seamlessly to diverse environmental conditions."
-          img="https://lh3.googleusercontent.com/aida-public/AB6AXuBcCCkMPhr9dH7-fD9EPedHNEmxDr4_ZzvuFdKMps3KYbwUO956z3eXL3BQ_Kg-H3qREgE2wu3by1zJbhXHJa_mQlVAEeJAPBvRIixEsQLz6t4kA6Q5oY0BmEJcvmrMgUGbw_VA4JCgSzSFT2MDw_pRGFB58L75tmA1y7YTl4uh58FQOvhGo4I8gaJmPoDjLb2ZbpF8JlbPLULY1SgkkUHvl7qH9Klxqe1ya8dwwjJmVPVBdmHE_L0lTWa3QR19yuFdaCxpzcbWEwg"
+          img="/tilapia.jpg"
           alt="Tilapia in aquaculture" />
         <SpeciesCard name="Shrimp" desc="Farmed in controlled aquatic environments such as ponds, or tanks to produce a sustainable source of seafood.
 "
-          img="https://lh3.googleusercontent.com/aida-public/AB6AXuBF5XuAQOQQxHgwb6uVfg5skr2FCE-SfmO1i4dk4lQ8KwYfecWKanwBOCRNkdg2HvY3Qzf7r7_HklOGTceeWN57nW8FA9VQLT-S3T2kHXXElI7V06ZUhhZ8CTW4Qi1BqJZYgFjoPyRoy1txX5pYdvMFwkGyjOS0D43I7dlJ-yH29K0aUa0lC1jPBDxH9rndxpGOMA7U6ISaNXMXsK3-9F1gvt4YKFyPy1eu5e4VCOh3aIObwSKXKnO1U-ZFP5bjY3Ub-5r6RrPnXM4"
+          img="/shrimp.jpg"
           alt="Shrimp in aquaculture" />
         <SpeciesCard name="Crab" desc="Mud crab fattening programs provide high-value income for small-scale coastal guardians."
-          img="https://lh3.googleusercontent.com/aida-public/AB6AXuD5V16NejxU1s-Lq7fKkEvRByUgq0Qq1tRNUguy3b1LZvCULMjcYKQJ083Mibq9rJ5-l9A8QeljWJPQ4VoxWiPmfmfYgEZJUT6eV5lIW7ZBHc-lK3YQJ0kt0Ea75za83llpev8Bi0aCXxl4cdAWAEz5RRyWKtx8PCX9ozpBnDVhpYeaj-z4RX33qdF6E9lhdwsxFZCFJzeopj2w_uwXHZ4BmSndoANqIoDdW9O8tlstTYxchAkYYfm-vnQQcOcE2nk8m0ApzIQCyl8"
+          img="/crab.jpg"
           alt="Mud crab" />
       </div>
     </section>
@@ -390,8 +415,8 @@ const ChapterSolutions = ({ onNavigateCatch }: { onNavigateCatch?: () => void })
 );
 
 // ─── Chapter 3: The Catch ─────────────────────────────────────────────────────
-interface FlipCardProps { frontIcon: string; frontTitle: string; backTitle: string; backBody: string; }
-const FlipCard = ({ frontIcon, frontTitle, backTitle, backBody }: FlipCardProps) => {
+interface FlipCardProps { frontIcon: string; frontTitle: string; backTitle: string; backBody: string; image?: string; }
+const FlipCard = ({ frontIcon, frontTitle, backTitle, backBody, image }: FlipCardProps) => {
   const [flipped, setFlipped] = useState(false);
   return (
     <div
@@ -402,10 +427,12 @@ const FlipCard = ({ frontIcon, frontTitle, backTitle, backBody }: FlipCardProps)
     >
       <div className="relative w-full h-full" style={{ transformStyle: "preserve-3d", transition: "transform 0.6s", transform: flipped ? "rotateY(180deg)" : "rotateY(0deg)" }}>
         {/* Front */}
-        <div className="absolute inset-0 bg-surface-container-lowest p-8 flex flex-col justify-between" style={{ backfaceVisibility: "hidden" }}>
-          <span className="text-4xl">{frontIcon}</span>
-          <h3 className="font-sans font-bold text-xl uppercase tracking-widest">{frontTitle}</h3>
-          <p className="text-sm opacity-70 font-serif">Hover to see the ecological conversion</p>
+        <div className="absolute inset-0 bg-surface-container-lowest p-8 flex flex-row justify-between items-center" style={{ backfaceVisibility: "hidden" }}>
+          <div className="flex flex-col">
+            <h3 className="font-sans font-bold text-xl uppercase tracking-widest">{frontTitle}</h3>
+            <p className="text-sm opacity-70 font-serif">Hover to see the ecological conversion</p>
+          </div>
+          {image && <img src={image} alt={frontTitle} className="w-50 h-50 object-cover rounded" />}
         </div>
         {/* Back */}
         <div className="absolute inset-0 bg-primary-container p-8 flex flex-col justify-center items-center text-center"
@@ -447,8 +474,8 @@ const ChapterCatch = () => (
             Industrial aquaculture promises a world where food security is untethered from the volatility of wild stocks. High-yield systems and efficient biomass conversion are the heralds of this new age.
           </p>
           <div className="space-y-8">
-            <FlipCard frontIcon="🍽️" frontTitle="Tuna Offals" backTitle="Nutrient Recovery" backBody="Converting waste into high-protein animal feed, closing the circular economy loop in global tuna processing." />
-            <FlipCard frontIcon="🌿" frontTitle="Oyster Shells" backTitle="pH Neutralization" backBody="Utilizing discarded shells to buffer ocean acidification and provide structural substrate for new reef growth." />
+            <FlipCard frontIcon="🍽️" frontTitle="Tuna Offals" backTitle="Nutrient Recovery" backBody="Converting waste into high-protein animal feed, closing the circular economy loop in global tuna processing." image="/tuna-offal.jpg" />
+            <FlipCard frontIcon="🌿" frontTitle="Oyster Shells" backTitle="pH Neutralization" backBody="Utilizing discarded shells to buffer ocean acidification and provide structural substrate for new reef growth." image="/oyster.jpg" />
           </div>
         </div>
       </div>
@@ -494,9 +521,11 @@ const ChapterCatch = () => (
     {/* 3-up Image Grid */}
     <section className="px-6 md:px-12 pb-40">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="relative overflow-hidden rounded-lg bg-on-surface aspect-square flex items-end p-8">
-          <div className="absolute inset-0 opacity-20 bg-gradient-to-br from-primary to-secondary" />
-          <p className="font-sans font-black text-on-primary text-2xl uppercase tracking-widest relative z-10">Safe Zone Work</p>
+        <div className="relative overflow-hidden rounded-lg aspect-square">
+          <img
+            src="/mangrove-1.jpg"
+            alt="Aerial aquaculture" className="w-full h-full object-cover"
+          />
         </div>
         <div className="bg-primary-fixed rounded-lg aspect-square flex flex-col items-center justify-center p-8 text-center">
           <span className="font-sans font-black text-7xl text-primary leading-none mb-4">60%</span>
@@ -504,7 +533,7 @@ const ChapterCatch = () => (
         </div>
         <div className="relative overflow-hidden rounded-lg aspect-square">
           <img
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSErslgGsu06CXxhk6LuhdMJukVjo1JFL3AJqSZPHt0oKwFCeCNXXHmfWFdSzo67rar98cFQWjbkjecPIiN0UyxS3lhF3VkOCbMt-tdaVC3SrYYUO-FUzUXbRpCzfC3ZGCaHWDW27YqKtfKnON5zENDKc26kLDr3qQ0gMW2JGUMTD0zFc1JXhNt6f3kGFeeCXlrn1r3iSK3MA5YDnp_MY1MT8y4WNlpGRn2CunMAWMumTeH-9jVC3Fs4qP_wyJkywRa2ylFV5b-kQ"
+            src="/mangrove-2.jpg"
             alt="Aerial aquaculture" className="w-full h-full object-cover"
           />
         </div>
@@ -514,9 +543,11 @@ const ChapterCatch = () => (
 );
 
 // ─── Chapter 4: What Now? ─────────────────────────────────────────────────────
-const AgencyCard = ({ icon, name, fullName, desc, color }: { icon: string; name: string; fullName: string; desc: string;  color: string }) => (
+const AgencyCard = ({ icon, name, fullName, desc, color }: { icon: string; name: string; fullName: string; desc: string; color: string }) => (
   <div className="bg-surface-container-lowest p-10 rounded-xl flex flex-col h-full">
-    <div className={`w-16 h-16 flex items-center justify-center rounded-full mb-8 text-2xl ${color}`}>{icon}</div>
+    <div className={`w-16 h-16 flex items-center justify-center rounded-full mb-8 ${color}`}>
+      <img src={icon} alt={`${name} logo`} className="w-full h-full object-contain" />
+    </div>
     <h3 className="font-sans font-bold text-xl mb-4">{name}</h3>
     <p className={`font-sans text-sm font-bold uppercase mb-6 ${color.includes("primary") ? "text-primary" : color.includes("tertiary") ? "text-tertiary" : "text-secondary"}`}>{fullName}</p>
     <p className="text-on-surface-variant mb-8 flex-grow font-serif">{desc}</p>
@@ -687,9 +718,9 @@ const ChapterWhatNow = () => {
             <p className="text-xl leading-relaxed text-on-surface-variant font-serif">In the Philippines, ensuring the integrity of the blue economy falls under a multi-agency shield. This legislative infrastructure is designed to bridge the gap between industrial efficiency and public health.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            <AgencyCard icon="🌊" name="DA-BFAR" fullName="Bureau of Fisheries & Aquatic Resources" desc="Regulating and developing the country's fisheries and aquatic resources to ensure sustainable production, food safety, and livelihood support for coastal communities." color="bg-primary-fixed" />
-            <AgencyCard icon="🌾" name="DENR" fullName="Department of Environment and Natural Resources" desc="Overseeing the protection, conservation, and sustainable management of the country's natural resources, including ecosystems that support food production." color="bg-tertiary-fixed" />
-            <AgencyCard icon="🛡️" name="DOH" fullName="Department of Health" desc="The final arbiter of safety, managing the Food and Drug Administration (FDA) to certify processed fish for consumption." color="bg-secondary-fixed" />
+            <AgencyCard icon="/da-bfar-logo.jpg" name="DA-BFAR" fullName="Bureau of Fisheries & Aquatic Resources" desc="Regulating and developing the country's fisheries and aquatic resources to ensure sustainable production, food safety, and livelihood support for coastal communities." color="bg-primary-fixed" />
+            <AgencyCard icon="/denr-logo.jpg" name="DENR" fullName="Department of Environment and Natural Resources" desc="Overseeing the protection, conservation, and sustainable management of the country's natural resources, including ecosystems that support food production." color="bg-tertiary-fixed" />
+            <AgencyCard icon="/doh-logo.png" name="DOH" fullName="Department of Health" desc="The final arbiter of safety, managing the Food and Drug Administration (FDA) to certify processed fish for consumption." color="bg-secondary-fixed" />
           </div>
         </div>
       </section>
@@ -699,7 +730,7 @@ const ChapterWhatNow = () => {
         <img
           alt="Fisherman at sea"
           className="w-full h-full object-cover"
-          src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhSbDeO11qxEarrZYIUPAUXGsdy49Am6RhZ4EN4Ox9Izm-BLWiUIvReIglYvMLOJdcK_cNnbqjYLeD0vu4ZqvfRKaD481Q2mEJsTWwaw6g0VCMSCppo9JhTkZlWawBR7lJJjoALCa9xN2LtW7u2a5vrjtHVw_i59WHEHMMmd4gOv_1br9hYQ7iisdDz7dOfRz6Hkr78O14H0qR-q-46jprpX4czDPuNmj7XLH3WgNIDQwtJQp3_JFMeKJ0d7ju_3Hp-2XtTxJljQE"
+          src="/mangrove-2.jpg"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
       </section>
