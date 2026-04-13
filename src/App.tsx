@@ -214,9 +214,9 @@ const ChapterProblem = () => (
             Global maritime monitoring has identified seventeen primary ecological zones currently fished far beyond their natural replenishment threshold.
           </p>
           <div className="h-px w-24 bg-on-surface/30 mb-8" />
-          <p className="font-sans font-medium text-sm uppercase tracking-widest text-on-surface/70">
+          {/* <p className="font-sans font-medium text-sm uppercase tracking-widest text-on-surface/70">
             Source: Global Fisheries Watch Report 2024
-          </p>
+          </p> */}
         </div>
       </div>
     </section>
@@ -338,12 +338,12 @@ const ChapterSolutions = ({ onNavigateCatch }: { onNavigateCatch?: () => void })
             With the growing global population, aquaculture is expected to meet the increasing demand for cheaper animal protein. To boost fish production, fish farmers have shifted from traditional culture methods to highly intensified aquaculture systems to ensure higher productivity and consistent supply…
           </p>
         </div>
-        <div className="col-span-12 lg:col-span-4 hidden lg:block">
+        {/* <div className="col-span-12 lg:col-span-4 hidden lg:block">
           <div className="bg-primary-fixed p-8 rounded-lg">
             <span className="font-sans font-bold text-xs uppercase tracking-widest text-on-surface mb-2 block">Objective</span>
             <p className="text-on-surface font-medium">To transition 60% of regional consumption to restorative aquaculture by 2030.</p>
           </div>
-        </div>
+        </div> */}
       </div>
     </header>
 
@@ -528,8 +528,8 @@ const ChapterCatch = () => (
           />
         </div>
         <div className="bg-primary-fixed rounded-lg aspect-square flex flex-col items-center justify-center p-8 text-center">
-          <span className="font-sans font-black text-7xl text-primary leading-none mb-4">60%</span>
-          <p className="font-sans font-bold text-sm uppercase tracking-widest text-on-surface">of mangrove loss in Southeast Asia is linked to aquaculture expansion.</p>
+          {/* <span className="font-sans font-black text-7xl text-primary leading-none mb-4">60%</span> */}
+          <p className="font-sans font-bold text-sm uppercase tracking-widest text-on-surface">large areas of mangrove resource has been destroyed for the construction of fishponds and other aquaculture facilities</p>
         </div>
         <div className="relative overflow-hidden rounded-lg aspect-square">
           <img
@@ -718,7 +718,7 @@ const ChapterWhatNow = () => {
             <p className="text-xl leading-relaxed text-on-surface-variant font-serif">In the Philippines, ensuring the integrity of the blue economy falls under a multi-agency shield. This legislative infrastructure is designed to bridge the gap between industrial efficiency and public health.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            <AgencyCard icon="/da-bfar-logo.jpg" name="DA-BFAR" fullName="Bureau of Fisheries & Aquatic Resources" desc="Regulating and developing the country's fisheries and aquatic resources to ensure sustainable production, food safety, and livelihood support for coastal communities." color="bg-primary-fixed" />
+            <AgencyCard icon="/da-bfar-logo.jpg" name="DA-BFAR" fullName="Department of Agriculture - Bureau of Fisheries & Aquatic Resources" desc="Regulating and developing the country's fisheries and aquatic resources to ensure sustainable production, food safety, and livelihood support for coastal communities." color="bg-primary-fixed" />
             <AgencyCard icon="/denr-logo.jpg" name="DENR" fullName="Department of Environment and Natural Resources" desc="Overseeing the protection, conservation, and sustainable management of the country's natural resources, including ecosystems that support food production." color="bg-tertiary-fixed" />
             <AgencyCard icon="/doh-logo.png" name="DOH" fullName="Department of Health" desc="The final arbiter of safety, managing the Food and Drug Administration (FDA) to certify processed fish for consumption." color="bg-secondary-fixed" />
           </div>
