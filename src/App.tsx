@@ -112,7 +112,7 @@ const Hero = ({ onBegin }: { onBegin: () => void }) => (
     </div>
     {/* Left Photo Grid */}
     <div className="absolute bottom-12 left-12 hidden xl:block">
-      <motion.div initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.8, duration: 1 }} className="grid grid-cols-1 gap-4 w-80">
+      <motion.div initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.8, duration: 1 }} className="grid grid-cols-1 gap-4 w-60">
         <div className="relative rounded-lg overflow-hidden border border-outline-variant/10" style={{ boxShadow: "0 20px 40px -15px rgba(0,105,76,0.04)" }}>
           <img alt="feature-photo-1" className="w-full aspect-square object-cover" src="/feature-photo-1.jpg" />
           <div className="absolute bottom-0 left-0 right-0 p-2 bg-gradient-to-t from-on-surface/80 to-transparent">
@@ -132,7 +132,7 @@ const Hero = ({ onBegin }: { onBegin: () => void }) => (
     </div>
     {/* Right Photo Grid */}
     <div className="absolute bottom-12 right-12 hidden xl:block">
-      <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.8, duration: 1 }} className="grid grid-cols-1 gap-4 w-80">
+      <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.8, duration: 1 }} className="grid grid-cols-1 gap-4 w-60">
         <div className="relative rounded-lg overflow-hidden border border-outline-variant/10" style={{ boxShadow: "0 20px 40px -15px rgba(0,105,76,0.04)" }}>
           <img alt="feature-photo-4" className="w-full aspect-square object-cover" src="/feature-photo-4.jpg" />
           <div className="absolute bottom-0 left-0 right-0 p-2 bg-gradient-to-t from-on-surface/80 to-transparent">
