@@ -474,8 +474,20 @@ const ChapterCatch = () => (
             Industrial aquaculture promises a world where food security is untethered from the volatility of wild stocks. High-yield systems and efficient biomass conversion are the heralds of this new age.
           </p>
           <div className="space-y-8">
-            <FlipCard frontIcon="🍽️" frontTitle="Tuna Offals" backTitle="Nutrient Recovery" backBody="Converting waste into high-protein animal feed, closing the circular economy loop in global tuna processing." image="/tuna-offal.jpg" />
-            <FlipCard frontIcon="🌿" frontTitle="Oyster Shells" backTitle="pH Neutralization" backBody="Utilizing discarded shells to buffer ocean acidification and provide structural substrate for new reef growth." image="/oyster.jpg" />
+            <FlipCard 
+  frontIcon="🍽️" 
+  frontTitle="Tuna Offals" 
+  backTitle="Waste Management" 
+  backBody="A major byproduct of fish processing that requires effective waste management to prevent health hazards and environmental degradation." 
+  image="/tuna-offal.jpg" 
+/>
+<FlipCard 
+  frontIcon="🌿" 
+  frontTitle="Oyster Shells" 
+  backTitle="Processing Byproducts" 
+  backBody="Massive mounds of discarded shells are generated during production, highlighting the need for proper disposal and treatment to maintain environmental quality." 
+  image="/oyster.jpg" 
+/>
           </div>
         </div>
       </div>
