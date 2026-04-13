@@ -161,7 +161,7 @@ const SplitPanel = () => (
       <div className="relative z-10">
         <h2 className="font-sans font-extrabold text-4xl md:text-5xl text-on-surface mb-8 tracking-tight">The Vanishing Wild</h2>
         <p className="font-serif text-xl text-on-surface/80 max-w-md leading-relaxed">
-          For every kilogram of farmed salmon, nearly three kilograms of wild-caught "feeder fish" are extracted from fragile ecosystems in the Global South.
+          Commercial capture fisheries have been declining since 1995. Scientists believe the maximum sustainable yield (MSY) for global food fish has almost been reached, with all 17 of the world's major fishing areas fished beyond their limits to replenish. To adapt, the aquaculture industry is changing; for example, in open-pen systems, plant-based food now replaces fishmeal made from wild-caught fish.
         </p>
       </div>
     </motion.div>
@@ -169,9 +169,9 @@ const SplitPanel = () => (
       className="bg-primary-fixed p-12 md:p-24 flex flex-col justify-center items-start relative overflow-hidden">
       <span className="font-sans font-black text-8xl md:text-[12rem] text-primary/10 absolute top-0 right-0 leading-none select-none pointer-events-none">HOPE</span>
       <div className="relative z-10">
-        <h2 className="font-sans font-extrabold text-4xl md:text-5xl text-on-surface mb-8 tracking-tight">Regenerative Tides</h2>
+        <h2 className="font-sans font-extrabold text-4xl md:text-5xl text-on-surface mb-8 tracking-tight">Maximizing Resources</h2>
         <p className="font-serif text-xl text-on-surface/80 max-w-md leading-relaxed">
-          New vertical ocean farms are growing kelp and shellfish that actually clean the water and sequester carbon, providing food without inputs.
+          To address the overexploitation of wild stocks and discourage unsustainable farming practices, fish processing technology maximizes the utilization of our harvested resources. By processing and adding value to our catches, we can feed a growing population with safe, nutritious products while reducing the pressure to blindly produce more.
         </p>
       </div>
     </motion.div>
