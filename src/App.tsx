@@ -640,7 +640,7 @@ const ChapterWhatNow = () => {
             <div className="md:col-span-5 flex flex-col justify-end">
               <div className="p-8 bg-surface-container-low rounded-xl">
                 <p className="font-sans font-bold text-sm text-secondary uppercase tracking-widest mb-4">Reflection Prompt</p>
-                <h2 className="font-sans font-bold text-2xl mb-6">What do you think should be done?</h2>
+                <h2 className="font-sans font-bold text-2xl mb-6">What do you think?</h2>
 
                 {submitted ? (
                   <div className="text-center py-6">
