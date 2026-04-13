@@ -488,9 +488,9 @@ const ChapterCatch = () => (
           </p>
           <div className="space-y-12">
             {[
-              { title: "Eutrophication", desc: 'Excess nitrogen from intensive pens triggers algae blooms, suffocating entire local ecosystems in "dead zones."' },
-              { title: "Mangrove Destruction", desc: "Shrimp farming alone has decimated 35% of the world's coastal mangroves, removing our best defense against storm surges." },
-              { title: "Antibiotic Resistance", desc: 'Prophylactic drug use in aquaculture is leaking into the wild, creating "super-pathogens" that threaten human medicine.' },
+              { title: "Eutrophication", desc: 'The release of soluble inorganic nutrients (like phosphorus and nitrogen) from intensive farming causes nutrient enrichment and eutrophication (an increase in primary production) in water bodies. Furthermore, the deposition of this organic waste increases oxygen consumption in the sediment, leading to the depletion of bottom-water oxygen, which is the usual cause of massive fish kills' },
+              { title: "Mangrove Destruction", desc: "Large areas of mangrove resources have been destroyed to make way for the construction of fishponds and other aquaculture facilities." },
+              { title: "Antibiotic Resistance", desc: 'The haphazard use of bioactive compounds, including antibiotics for disease control, affects local fauna when uneaten medicated food is released into the receiving environment. This can lead to the development of antibiotic resistance among microbial communities' },
             ].map((item) => (
               <div key={item.title} className="flex items-start gap-6">
                 <div className="w-12 h-12 bg-secondary rounded-full flex items-center justify-center shrink-0 text-on-secondary font-bold text-lg">!</div>
